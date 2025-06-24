@@ -8,25 +8,25 @@
 
 ## 1 · Purpose & Vision
 
-* **Mission** – Build the world’s most comprehensive, multi-language *vocabulary-in-media* platform so language learners can instantly gauge how much of a film, episode, book, or game they will understand and receive personalized study assets.
-* **Core Value Proposition** – By aligning a user’s *known word set* with frequency-ordered and chronologically ordered vocab extracted from any media, we surface *comprehension-ready* content and *recommended next words*.
-* **MVP Scope ("walking skeleton")**
-
+- **Mission** – Build the world’s most comprehensive, multi-language _vocabulary-in-media_ platform so language learners can instantly gauge how much of a film, episode, book, or game they will understand and receive personalized study assets.
+- **Core Value Proposition** – By aligning a user’s _known word set_ with frequency-ordered and chronologically ordered vocab extracted from any media, we surface _comprehension-ready_ content and _recommended next words_.
+- **MVP Scope ("walking skeleton")**
   1. Upload an **SRT** subtitle file.
   2. Tokenize & lemmatize → store tokens in **PostgreSQL**.
   3. Show two sortable tables: **frequency** & **chronology**.
   4. Authenticated user can paste a list of known words → coverage % badge.
   5. CI-backed deployment on each push to **main**.
-* **Long-term Horizons**
+
+- **Long-term Horizons**
   ▸ Automatic crawling (OpenSubtitles, RSS, scrapers).
   ▸ Trusted-source submissions & moderation queue.
   ▸ Books (e-Pub/Kindle), visual novels, game scripts.
   ▸ Multi-language NLP pipelines.
-  ▸ Word-knowledge import via *textbooks/courses finished* & **MCP server** sync.
+  ▸ Word-knowledge import via _textbooks/courses finished_ & **MCP server** sync.
   ▸ Export: **CSV**, **Anki .apkg** (via genanki-js).
   ▸ Recommended words to learn for target media.
   ▸ Series/Season/Episode hierarchies & franchise roll-ups.
-  ▸ Graphs – *unique vs total known words over time*.
+  ▸ Graphs – _unique vs total known words over time_.
   ▸ Cost dashboards & eventual paid tier when free quotas burn out.
 
 ---
@@ -61,14 +61,14 @@
                                           +-------------+
 ```
 
-* **Frontend** – Next.js 15 (App Router) + React 19, Tailwind 4, TanStack Query.
-* **API layer** – Express **or** Next.js route handlers; future tRPC possible.
-* **Auth** – BetterAuth (email/password + Google OAuth; 2FA ready).
-* **Queue** – BullMQ on Redis for CPU-bound ETL jobs (tokenization, Anki export).
-* **NLP** – spaCy pipelines per language; pluggable custom rules.
-* **ORM** – Drizzle (typed SQL, migrations in repo).
-* **Containerisation** – Docker & Compose; each service its own image.
-* **Hosting (free-tier)**
+- **Frontend** – Next.js 15 (App Router) + React 19, Tailwind 4, TanStack Query.
+- **API layer** – Express **or** Next.js route handlers; future tRPC possible.
+- **Auth** – BetterAuth (email/password + Google OAuth; 2FA ready).
+- **Queue** – BullMQ on Redis for CPU-bound ETL jobs (tokenization, Anki export).
+- **NLP** – spaCy pipelines per language; pluggable custom rules.
+- **ORM** – Drizzle (typed SQL, migrations in repo).
+- **Containerisation** – Docker & Compose; each service its own image.
+- **Hosting (free-tier)**
   ▸ Web → Vercel Hobby.
   ▸ Worker & API → Cloudflare Workers.
   ▸ Postgres → Neon Free.
@@ -122,7 +122,7 @@
 
 1. **TypeScript strict** (`strict: true`, `exactOptionalPropertyTypes`).
 2. **Folder-by-feature** inside `/apps/web`; co-locate tests (`*.test.tsx`).
-3. **Prettier enforced** – run as *pre-commit* via Husky + lint-staged.
+3. **Prettier enforced** – run as _pre-commit_ via Husky + lint-staged. Markdown uses Prettier's default style (hyphen bullets, underscores for emphasis); avoid manual reformatting.
 4. **eslint rules** – `unused-imports`, `no-explicit-any`, `import/order`, `tailwindcss/no-custom-classname`.
 5. **Zod at boundaries** – every request body, env var (`zod-env`).
 6. **Error handling** – never swallow errors; use typed `Result<T, E>` or throw `AppError`.
@@ -134,30 +134,30 @@
 | Level       | Tooling                    | What we cover                     |
 | ----------- | -------------------------- | --------------------------------- |
 | Unit        | Vitest                     | Pure logic, utils, Drizzle models |
-| Integration | Supertest + Vitest         | API ↔ DB, Worker ↔ Queue          |
+| Integration | Supertest + Vitest         | API ↔ DB, Worker ↔ Queue        |
 | E2E         | Playwright (later)         | Critical user journeys            |
 | Contract    | Dredd/openAPI-test (later) | External consumers                |
 
-* **Coverage gate** – 95 % lines + branches enforced in CI.
+- **Coverage gate** – 95 % lines + branches enforced in CI.
 
 ---
 
 ## 8 · CI / CD
 
-* **GitHub Actions**
-  ▸ `lint` → `test` → `build` → *Turborepo remote cache*.
+- **GitHub Actions**
+  ▸ `lint` → `test` → `build` → _Turborepo remote cache_.
   ▸ Fails the run if coverage <95 %.
   ▸ Preview deploy on every PR via Vercel; production deploy when **main** passes.
-* **Secrets needed** – `DATABASE_URL`, `REDIS_URL`, `BETTERAUTH_SECRET`, `TURBO_TEAM`, `TURBO_TOKEN`, `VERCEL_TOKEN`.
+- **Secrets needed** – `DATABASE_URL`, `REDIS_URL`, `BETTERAUTH_SECRET`, `TURBO_TEAM`, `TURBO_TOKEN`, `VERCEL_TOKEN`.
 
 ---
 
 ## 9 · Contribution Workflow for Codex Agents
 
 1. **Read latest `AGENTS.md`** and align output.
-2. Generate code in feature branch `feat/<ticket-id>-<slug>`.
+2. Generate code in feature branch `feat/<task-id>-<slug>` (e.g., `feat/t0-07-husky`)
 3. Ensure `pnpm turbo lint test build` passes locally.
-4. Open PR with description: *Problem → Solution → Doc updates*.
+4. Open PR with description: _Problem → Solution → Doc updates_.
 5. Human reviewer merges; CI auto-deploys.
 
 > **Codex MUST never push directly to main.**
@@ -166,39 +166,39 @@
 
 ## 10 · Definition of Done
 
-* New feature fully implemented & covered by tests.
-* Documentation & schema migrations updated.
-* No ESLint/Prettier errors.
-* CI green; preview URL posted.
-* If touching data model, backfill script & migration included.
+- New feature fully implemented & covered by tests.
+- Documentation & schema migrations updated.
+- No ESLint/Prettier errors.
+- CI green; preview URL posted.
+- If touching data model, backfill script & migration included.
 
 ---
 
 ## 11 · Glossary
 
-* **Coverage %** – Percentage of tokens in media that appear in user’s `KnownToken` set.
-* **Token** – Normalised lemma representation of a word after spaCy pipeline.
-* **KnownToken** – Join table linking user ↔ token.
-* **MCP** – *Model Context Protocol* server for getting a user's known words or the vocab in from a particular piece of media
+- **Coverage %** – Percentage of tokens in media that appear in user’s `KnownToken` set.
+- **Token** – Normalised lemma representation of a word after spaCy pipeline.
+- **KnownToken** – Join table linking user ↔ token.
+- **MCP** – _Model Context Protocol_ server for getting a user's known words or the vocab in from a particular piece of media
 
 ---
 
 ## 12 · References / Further Reading
 
-* Next.js 15 Release Notes
-* Tailwind CSS 4.0 GA
-* Vercel Remote Cache for Turborepo
-* pnpm Workspaces Docs
-* Drizzle ORM Docs
-* BullMQ Docs
-* BetterAuth Docs
-* spaCy Multi-language Models
-* OpenSubtitles API & License
-* genanki-js project
-* Agents.md best-practice site
+- Next.js 15 Release Notes
+- Tailwind CSS 4.0 GA
+- Vercel Remote Cache for Turborepo
+- pnpm Workspaces Docs
+- Drizzle ORM Docs
+- BullMQ Docs
+- BetterAuth Docs
+- spaCy Multi-language Models
+- OpenSubtitles API & License
+- genanki-js project
+- Agents.md best-practice site
 
 (See repository `/docs/REFERENCES.md` for full citation URLs.)
 
 ---
 
-> *Update history* – Keep a changelog appendix when major architectural decisions change.
+> _Update history_ – Keep a changelog appendix when major architectural decisions change.
