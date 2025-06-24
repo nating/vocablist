@@ -1,0 +1,24 @@
+{
+  "name": "vocablist",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2",
+  "private": true,
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,md,css,json}": [
+      "prettier --write"
+    ]
+  }
+}
