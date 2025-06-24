@@ -1,0 +1,13 @@
+name: "🛠 Manual / Ops Step"
+description: "Used by Codex to request secrets, account setup, or dashboard work."
+labels: [ops, needs-maintainer]
+assignees: ["@nating"]
+
+body:
+  - type: textarea
+    id: action
+    attributes:
+      label: Exact human task
+      description: |
+        Explain *why* and *how*.
+        Example: “Create Neon Postgres project (free tier) and set DATABASE_URL secret.”
