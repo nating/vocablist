@@ -1,4 +1,4 @@
-# AGENTS.md – Vocab-Insight
+# AGENTS.md – vocablist
 
 > **One file to rule how AI (Codex) and humans collaborate on this codebase.**
 >
