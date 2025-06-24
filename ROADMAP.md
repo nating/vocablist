@@ -8,8 +8,8 @@
 * [x] T0‑01 Initialize Git repository `vocablist`, add MIT License, README scaffold
 * [x] T0‑02 Commit `AGENTS.md` and `ROADMAP.md` seeds
 * [x] T0‑03 Add `.editorconfig`, `.nvmrc`, and root `pnpm-workspace.yaml`
-* [ ] T0‑04 Set up branch protection rules; commit `CODEOWNERS` (maintainer) and default labels
-* [ ] T0‑05 Add GitHub Issue templates (`💡 Feature / Task`, `🛠 Manual / Ops`, PR template)
+* [x] T0‑04 Set up branch protection rules; commit `CODEOWNERS` (maintainer) and default labels
+* [x] T0‑05 Add GitHub Issue templates (`💡 Feature / Task`, `🛠 Manual / Ops`, PR template)
 * [ ] T0‑06 Enable Vercel Remote Cache tokens & add `TURBO_TOKEN`, `TURBO_TEAM` as **TODO secrets**
 * [ ] T0‑07 Install Husky + lint‑staged pre‑commit hooks
 * [ ] T0‑08 Create GitHub Project board `Backlog` columns: Todo / In‑Progress / Review / Done
