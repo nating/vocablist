@@ -1,0 +1,62 @@
+name: "💡 Feature / Task (handled by Codex)"
+description: "Codex: use this for every new code task. You MUST fill every section."
+labels: [codex-task, status:triage]
+assignees: [openai-codex-bot]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Fill this template completely.**  
+        • Keep issues atomic.  
+        • If human actions are needed (secrets, dashboard clicks, new account), list them below.  
+        • When the PR merges, open the next issue (if any) from ROADMAP.md.
+
+  - type: input
+    id: summary
+    attributes:
+      label: One-sentence summary
+      placeholder: "Add BullMQ queue and Redis adapter"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed description
+      description: "What will be built / changed?"
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: |
+        Bullet list of testable criteria. Example:
+        - [ ] `pnpm test` passes locally and CI
+        - [ ] Coverage ≥ 95 %
+        - [ ] `/api/upload` accepts .srt
+      value: "- [ ] "
+
+  - type: textarea
+    id: manual
+    attributes:
+      label: Manual actions required by maintainer
+      description: |
+        List **exact** steps for the human maintainer to perform
+        (create accounts, add env vars, toggle branch-protection, etc).
+      placeholder: |
+        1. Create Upstash Redis database
+        2. Add REDIS_URL secret to GitHub / Vercel
+      value: "None"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Dev checklist (Codex must tick before opening PR)
+      options:
+        - label: Code compiles (`pnpm turbo build`)
+          required: true
+        - label: Tests & coverage pass (`pnpm turbo test`)
+          required: true
+        - label: `pnpm lint` returns 0 errors
+          required: true
+        - label: I have updated ROADMAP.md if scope changed
+          required: true
