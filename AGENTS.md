@@ -126,6 +126,7 @@
 4. **eslint rules** – `unused-imports`, `no-explicit-any`, `import/order`, `tailwindcss/no-custom-classname`.
 5. **Zod at boundaries** – every request body, env var (`zod-env`).
 6. **Error handling** – never swallow errors; use typed `Result<T, E>` or throw `AppError`.
+7. **Commit messages** – follow Conventional Commits; generate via Commitizen and validated by commitlint.
 
 ---
 
@@ -155,9 +156,9 @@
 ## 9 · Contribution Workflow for Codex Agents
 
 1. **Read latest `AGENTS.md`** and align output.
-2. Generate code in feature branch `feat/<task-id>-<slug>` (e.g., `feat/t0-07-husky`)
+2. Generate code in feature branch `codex/<PR-number>` where `<PR-number>` is the expected next PR ID.
 3. Ensure `pnpm turbo lint test build` passes locally.
-4. Open PR with description: _Problem → Solution → Doc updates_.
+4. Open PR with description covering **all** changes in the branch (Problem → Solution → Doc updates).
 5. Human reviewer merges; CI auto-deploys.
 
 > **Codex MUST never push directly to main.**
