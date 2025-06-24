@@ -1,0 +1,21 @@
+- name: codex-task
+  color: "0E8A16"
+  description: "Task handled by Codex bot"
+- name: ops
+  color: "5319E7"
+  description: "Manual or operational work"
+- name: needs-maintainer
+  color: "B60205"
+  description: "Requires human maintainer action"
+- name: status:triage
+  color: "FBCA04"
+  description: "New issue awaiting triage"
+- name: status:in-progress
+  color: "0052CC"
+  description: "Work actively in progress"
+- name: status:review
+  color: "D4C5F9"
+  description: "Awaiting code review"
+- name: status:done
+  color: "0E8A16"
+  description: "Completed task"
